@@ -1,0 +1,4 @@
+ports scanned on ScanMe.Nmap.Org at 2025-07-13 17:22:23
+22 ssh
+80 http
+9929 unknown
