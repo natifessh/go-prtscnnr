@@ -1,5 +1,5 @@
 ## port scanner
 
 ```bash
-go run main.go <host>
+go run main.go <host> <file_name.json>
 ```

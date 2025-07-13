@@ -16,8 +16,8 @@ type Port struct {
 }
 
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Println("Usage: go run main.go <host>")
+	if len(os.Args) < 3 {
+		fmt.Println("Usage: go run main.go <host> <file_name.json>")
 		os.Exit(1)
 	}
 	target := os.Args[1]
@@ -40,7 +40,7 @@ func main() {
 	wg.Wait()
 	close(ch)
 	if len(results) > 0 {
-		file, _ := os.Create("ports.json")
+		file, _ := os.Create(os.Args[2])
 		defer file.Close()
 		file.WriteString("[\n")
 		for i, p := range results {
@@ -51,7 +51,7 @@ func main() {
 			}
 		}
 		file.WriteString("\n]")
-		fmt.Println("Results saved to ports.json")
+		fmt.Println("Results saved to ", os.Args[2])
 	} else {
 		fmt.Println("No open ports found")
 	}
